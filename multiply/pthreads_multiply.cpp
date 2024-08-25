@@ -4,10 +4,10 @@
 
 using namespace std;
 
-vector<int> nums;  // Global vector to hold numbers
-int num_threads;  // Number of threads
+vector<int> nums; 
+int num_threads;
 
-// Function that each thread will run
+
 void* operation(void* rank) {
     int thread_id = (long)rank;
     int n = nums.size();
@@ -37,13 +37,13 @@ int main() {
     for (int i = 0; i < n; ++i) {
         int value;
         cin >> value;
-        nums.push_back(value);  // Directly push each element into the vector
+        nums.push_back(value);  
     }
 
     cout << "Enter the number of threads: ";
     cin >> num_threads;
 
-    pthread_t threads[num_threads];  // Array of thread identifiers
+    pthread_t threads[num_threads];  
 
     // Create threads
     for (long i = 0; i < num_threads; ++i) {
